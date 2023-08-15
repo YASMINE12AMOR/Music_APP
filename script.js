@@ -75,6 +75,13 @@ function randomTrack(){
 function playRandom(){
     isRandom=true
     randomIcon.classList.add('randomActive')
+    let randIndex = Math.floor((Math.random() * music_list.length) + 1); //genereting random index/numb with max range of array length
+    do{
+      randIndex = Math.floor((Math.random() * music_list.length) + 1);
+    }while(track_index== randIndex); //this loop run until the next random number won't be the same of current musicIndex
+    track_index = randIndex; //passing randomIndex to musicIndex
+    loadTrack(track_index);
+    playTrack();
 }
 function pauseRandom(){
     isRandom=false
